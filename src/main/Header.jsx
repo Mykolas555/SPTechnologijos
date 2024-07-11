@@ -46,7 +46,7 @@ const Header = () => {
   }, []);
 
   return (
-    <nav className="relative bg-white-400 border-white-200 dark:border-gray-600 dark:bg-gray-900 border-b-4 border-red-500">
+    <nav className="relative z-40 bg-white-400 border-white-200 dark:border-gray-600 dark:bg-gray-900 border-b-4 border-red-500">
       <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
         <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src={SPTlogo} alt="SPT Logo" />

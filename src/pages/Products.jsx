@@ -1,11 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase/firebase';
 
 const Products = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const toggleDropdown = () => {
         setIsDropdownVisible(!isDropdownVisible);
     };
+
+    useEffect(() => {
+        // Fetch existing products from Firestore on component mount
+        const fetchProducts = async () => {
+            try {
+                const querySnapshot = await getDocs(collection(db, 'products'));
+                const productsList = [];
+                querySnapshot.forEach((doc) => {
+                    productsList.push(doc.data());
+                });
+                setProducts(productsList);
+                setLoading(false);
+            } catch (error) {
+                console.error("Error fetching products: ", error);
+                setLoading(false);
+            }
+        }
+
+        fetchProducts();
+    }, []);
 
     return (
         <>
@@ -50,6 +74,43 @@ const Products = () => {
                     </div>
                 </div>
             </form>
+            <div className="max-w-full p-5">
+
+  {loading ? (
+    <div className="text-center">
+      <h1 className="text-2xl font-medium mb-5">Waiting for products data...</h1>
+      <svg className="w-10 h-10 text-red-500 animate-spin mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </div>
+  ) : (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      {products.map((product, index) => (
+        <div
+          key={index}
+          className="h-70 w-50 flex flex-col items-center p-3 border-4 border-red-500 rounded-lg shadow-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+        >
+          <img
+            className="object-contain h-40 w-40"
+            src={product.imageUrl}
+            alt={`Product ${index}`}
+          />
+          <div className="p-4 leading-normal w-full">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              {product.title}
+            </h5>
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              {product.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+
+</div>
+
         </>
     );
 }

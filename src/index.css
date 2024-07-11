@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 body {
-    background-image: url('../src//assets/becjpg.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Optional: ensures the background image stays fixed */
-  }
+  background-image: url('../src//assets/becjpg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
