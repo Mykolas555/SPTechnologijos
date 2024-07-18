@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
+import { Link } from 'react-router-dom';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -14,10 +15,16 @@ const Products = () => {
                 const querySnapshot = await getDocs(collection(db, 'products'));
                 const productsList = [];
                 querySnapshot.forEach((doc) => {
-                    productsList.push(doc.data());
+                    const data = doc.data();
+                    productsList.push({
+                        id: doc.id,
+                        FID: data.id,
+                        title: data.title,
+                        description: data.description,
+                        img: data.imageUrl,
+                    });
                 });
                 setProducts(productsList);
-                setFilteredProducts(productsList);
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching products: ", error);
@@ -104,25 +111,21 @@ const Products = () => {
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                        {filteredProducts.map((product, index) => (
-                            <div
-                                key={index}
-                                className="h-70 w-50 flex flex-col items-center p-3 border-4 border-red-500 rounded-lg shadow-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
-                            >
-                                <img
-                                    className="object-contain h-40 w-40"
-                                    src={product.imageUrl}
-                                    alt={product.title}
-                                />
-                                <div className="p-4 leading-normal w-full">
-                                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        {product.title}
-                                    </h5>
-                                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                        {product.description}
-                                    </p>
+                        {filteredProducts.map((product) => (
+                            <Link key={product.id} to={`/product/${product.id}`} className="block">
+                                <div className="h-70 w-50 flex flex-col text-center items-center p-3 border-4 border-red-500 rounded-lg shadow-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                    <img
+                                        className="object-contain h-40 w-40"
+                                        src={product.img}
+                                        alt={product.title}
+                                    />
+                                    <div className="p-4 leading-normal w-full">
+                                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                            {product.title}
+                                        </h5>
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 )}

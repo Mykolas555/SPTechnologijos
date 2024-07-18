@@ -69,11 +69,11 @@ const Header = () => {
           ref={menuRef}
           className={`absolute top-full left-0 right-0 bg-white-400 md:static md:bg-transparent md:flex items-center justify-between w-full md:w-auto md:order-1 ${isDropdownOpen ? 'block' : 'hidden'}`}
         >
-          <ul className="flex flex-col p-4 mt-4 bg-gray-200 md:bg-transparent md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
+          <ul className="flex flex-col p-4 mt-4 bg-red-500 md:bg-transparent md:flex-row md:mt-0 md:space-x-8 rtl:space-x-reverse">
             <li>
               <Link
                 to="/AboutUs"
-                className="block py-2 px-3 text-red-500 border-b border-gray-100 hover:bg-gray-50 hover:text-black md:hover:text-black md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 px-3 text-black-500 border-b border-gray-100 hover:bg-gray-50 hover:text-black md:hover:text-black md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
                 onClick={handleCloseMenu}
               >
                 Apie mus
@@ -82,7 +82,7 @@ const Header = () => {
             <li>
               <Link
                 to="/Products"
-                className="block py-2 px-3 text-red-500 border-b border-gray-100 hover:bg-gray-50 hover:text-black md:hover:text-black md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 px-3 text-black-500 border-b border-gray-100 hover:bg-gray-50 hover:text-black md:hover:text-black md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
                 onClick={handleCloseMenu}
               >
                 Produktai
@@ -91,7 +91,7 @@ const Header = () => {
             <li>
               <Link
                 to="/Contacts"
-                className="block py-2 px-3 text-red-500 border-b border-gray-100 hover:bg-gray-50 hover:text-black md:hover:text-black md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 px-3 text-black-500 border-b border-gray-100 hover:bg-gray-50 hover:text-black md:hover:text-black md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
                 onClick={handleCloseMenu}
               >
                 Kontaktai
@@ -102,7 +102,7 @@ const Header = () => {
                 <li>
                   <Link
                     to="/Add"
-                    className="block py-2 px-3 text-red-500 border-b border-gray-100 hover:bg-gray-50 hover:text-black md:hover:text-black md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+                    className="block py-2 px-3 text-black-500 border-b border-gray-100 hover:bg-gray-50 hover:text-black md:hover:text-black md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
                     onClick={handleCloseMenu}
                   >
                     Pridėti
@@ -114,8 +114,8 @@ const Header = () => {
                       handleLogout();
                       handleCloseMenu();
                     }}
-                    className="block py-2 px-3 text-red-500 border-b border-gray-100 hover:bg-gray-50 hover:text-black md:hover:text-black md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
-                  >
+                    className="block py-2 px-3 text-black-500 border-b border-gray-100 hover:bg-gray-50 hover:text-black md:hover:text-black md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+                    >
                     Atsijungti
                   </button>
                 </li>
@@ -124,7 +124,7 @@ const Header = () => {
               <li>
                 <Link
                   to="/Login"
-                  className="block py-2 px-3 text-red-500 border-b border-gray-100 hover:bg-gray-50 hover:text-black md:hover:text-black md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 px-3 text-black-500 border-b border-gray-100 hover:bg-gray-50 hover:text-black md:hover:text-black md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
                   onClick={handleCloseMenu}
                 >
                   Prisijungti

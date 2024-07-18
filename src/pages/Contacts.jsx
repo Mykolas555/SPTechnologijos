@@ -26,26 +26,17 @@ const Contacts = () => {
     }
 
     return (
-        <div className='contacts flex flex-col items-center m-10'>
-            <h2 className='text-1xl text-gray-900 font-extralight dark:text-white text-justify font-bold'>
-                Kontaktinė informacija:
-            </h2>
-            <br />
-            <p className='text-1xl text-gray-900 font-extralight dark:text-white font-bold'>
-                Adresas: T. Masiulio g. 18b, LT-3014 Kaunas, Lithuania
-            </p>
-            <p className='text-1xl text-gray-900 font-extralight dark:text-white font-bold'>
-                Telefono nr: +370 37 407 277
-            </p>
-            <p className='text-1xl text-gray-900 font-extralight dark:text-white text-justify font-bold'>
-                Fakso nr.: +370 37 407 278
-            </p>
-            <p className='text-1xl text-gray-900 font-extralight dark:text-white text-justify font-bold'>
-                Mobilaus telefono nr: +370 687 97 000
-            </p>
-            <p className='text-1xl text-gray-900 font-extralight dark:text-white text-justify font-bold'>
-                Elektroninis paštas: info@spt.lt
-            </p>
+        <>
+        <div className='contacts flex flex-col items-center justify-center m-5'>
+            <div className='text-left'>
+                <h2 className='text-xl text-gray-900 dark:text-white font-bold'>Kontaktinė informacija:</h2>
+                <br />
+                <p className='text-lg text-gray-900 dark:text-white'><span className='font-semibold'>Adresas:</span> T. Masiulio g. 18b, LT-3014 Kaunas, Lithuania</p>
+                <p className='text-lg text-gray-900 dark:text-white'><span className='font-semibold'>Telefono nr:</span> +370 37 407 277</p>
+                <p className='text-lg text-gray-900 dark:text-white'><span className='font-semibold'>Fakso nr.:</span> +370 37 407 278</p>
+                <p className='text-lg text-gray-900 dark:text-white'><span className='font-semibold'>Mobilaus telefono nr:</span> +370 687 97 000</p>
+                <p className='text-lg text-gray-900 dark:text-white'><span className='font-semibold'>Elektroninis paštas:</span> info@spt.lt</p>
+            </div>
             <form onSubmit={handleSubmit} className='w-full max-w-md mt-10 border-4 border-red-500 rounded-lg p-5'>
                 <label className='text-1xl text-gray-900 font-extralight dark:text-white text-justify font-bold mb-2'>
                     Susisiekite su mumis elektroniniu paštu!
@@ -68,7 +59,7 @@ const Contacts = () => {
                     />
                 </div>
                 <textarea
-                    className='w-full h-32 p-2 border border-gray-300 rounded-md bg-gray-50'
+                    className='w-full h-32 p-2 border border-gray-300 rounded-md bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400'
                     placeholder='Parašykite žinutę...'
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
@@ -91,6 +82,7 @@ const Contacts = () => {
                 )}
             </form>
         </div>
+        </>
     );
 }
 
