@@ -50,7 +50,7 @@ const Products = () => {
             <form className="max-w-lg mx-auto p-5" onSubmit={(e) => e.preventDefault()}>
                 <div className="flex relative">
                     <div className="relative w-full">
-                        <label htmlFor="search-dropdown" className="sr-only">Search Products</label>
+                        <label htmlFor="search-dropdown" className="sr-only">Ieskoti produktu</label>
                         <input
                             type="search"
                             id="search-dropdown"
